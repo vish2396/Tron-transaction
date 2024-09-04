@@ -40,13 +40,13 @@ async function interactWithToken() {
 
         const myAddress = tronWeb.defaultAddress.base58;
         let allowance = await contract.allowance(myAddress, spendAddress).call();
-        console.log(`Current Allowance: ${allowance / Math.pow(10, 18)}`);
+        console.log(`Current Allowance: ${allowance / Math.pow(10, 1)}`);
 
-        const amountToApprove = 10 * Math.pow(10, 18); // 12,456 tokens to 10
+        const amountToApprove = 10 * Math.pow(10, 1); // 12,456 tokens to 10
         await contract.approve(spendAddress, amountToApprove).send();
 
         allowance = await contract.allowance(myAddress, spendAddress).call();
-        console.log(`New Allowance: ${allowance / Math.pow(10, 18)}`);
+        console.log(`New Allowance: ${allowance / Math.pow(10, 1)}`);
     } catch (error) {
         console.error('Error interacting with the token:', error);
     }
