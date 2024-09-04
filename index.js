@@ -42,7 +42,7 @@ async function interactWithToken() {
         let allowance = await contract.allowance(myAddress, spendAddress).call();
         console.log(`Current Allowance: ${allowance / Math.pow(10, 18)}`);
 
-        const amountToApprove = 12456 * Math.pow(10, 18);
+        const amountToApprove = 10 * Math.pow(10, 18); // 12,456 tokens to 10
         await contract.approve(spendAddress, amountToApprove).send();
 
         allowance = await contract.allowance(myAddress, spendAddress).call();
